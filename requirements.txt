@@ -1,0 +1,1 @@
+-e git+git://github.com/pdxacm/acmlib-py.git#egg=acmlib
