@@ -56,3 +56,5 @@ def acmcli():
             officerships_list(acmlib, args)
         elif args.subparser2 == 'delete':
             officerships_delete(acmlib, args)
+    elif args.subparser1 == 'database':
+        database_get(acmlib, args)

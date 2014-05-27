@@ -193,4 +193,11 @@ officerships_delete_parser = officerships_subparsers.add_parser('delete')
 
 officerships_delete_parser.add_argument('officership_id', type=int)
 
+
+#
+# Database Parser
+#
+
+database_parser = subparsers.add_parser('database')
+
 parser.parse_args()

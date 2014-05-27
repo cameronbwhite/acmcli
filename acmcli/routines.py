@@ -1,4 +1,5 @@
 import sys
+import os
 
 def exit_with_message_on_errors(f):
     
@@ -233,4 +234,26 @@ def officerships_list(acmlib, args):
 def officerships_delete(acmlib, args):
 
     acmlib.delete_officership(args.officership_id)
+
+@exit_with_message_on_errors
+def database_get(acmlib, args):
+
+    database = acmlib.get_database();
+    
+    command = "psql "
+    if database.dilect:
+        command += "{}://".format(database.dilect)
+    if database.username:
+        command += database.username
+        if database.password:
+            command += ":" + database.password
+        command += "@"
+    if database.host:
+        command += database.host
+    if database.port:
+        command += ":" + str(database.port)
+    if database.database:
+        command += "/" + database.database
+
+    os.system(command)
 
